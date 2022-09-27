@@ -3,6 +3,33 @@
     <mat-icon>home</mat-icon>
   </button>
 </div>
+
+<div class="button-menu1">
+  <div class="button-menu1">
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div
+    id="kt_docs_search_handler_basic"
+    data-kt-search-keypress="true"
+    data-kt-search-min-length="2"
+    data-kt-search-enter="true"
+    data-kt-search-layout="inline"
+    >
+
+    <input type="text" class="form-control form-control-lg form-control-solid px-15"
+            name="search"
+            value=""
+            placeholder="Search ..."
+            data-kt-search-element="input"/>
+
+  </div>
+</div>
+
+
+
 <div class="button-account">
   <button mat-icon-button>
     <mat-icon>person</mat-icon>
@@ -13,6 +40,7 @@
     <mat-icon>apps</mat-icon>
   </button>
 </div>
+
 <mat-drawer-container class="map-container" autosize>
   <mat-drawer #drawer class="map-sidenav" mode="side" opened="false">
     <ng-container *ngIf="viewStatus$ | async as viewStatus">
@@ -109,6 +137,7 @@
       </div>
     </ng-container>
   </mat-drawer>
+
 
   <div class="map-sidenav-content">
     <div id="divMap" class="w-100 h-100"></div>

@@ -9,7 +9,7 @@ const Routing: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./map/map.module').then((m) => m.MapModule),
-    data: { layout: 'light-header' }
+    data: { layout: 'empty-layout' }
   },
   {
     path: '',
