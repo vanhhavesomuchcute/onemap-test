@@ -32,6 +32,14 @@ export class ViewStatus {
 })
 export class MapComponent {
 
+  features:any = [
+    'Nhà hàng',
+    'Khách sạn',
+    'Điểm tham quan',
+    'Bảo tàng',
+    'Phương tiện'
+  ]
+
   @ViewChild('drawer') sidenav: MatDrawer;
 
   viewStatus$: Observable<ViewStatus>;

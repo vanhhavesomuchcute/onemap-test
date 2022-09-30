@@ -61,6 +61,7 @@
   z-index: 2;
   color: #6d6e6e;
 }
+
 .button-menu1 {
   position: absolute;
   top: 0.5rem;
@@ -69,3 +70,34 @@
   color: #6d6e6e;
 }
 
+.button-x {
+  position: absolute;
+  top: 1rem;
+  left: 30%;
+  z-index: 2;
+}
+
+.button-x ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 1rem;
+}
+
+.img-map {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.ul {
+  list-style-type: none ;
+}
+
+.button-x {
+  mat-icon {
+    font-size: 1.25rem;
+    display: inline;
+    padding-right: 0.25rem;
+  }
+}
