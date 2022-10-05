@@ -29,9 +29,10 @@
   </div>
 </div>
 
+
 <div class="button-x ">
   <ul>
-    <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>restaurant</mat-icon>Nhà hàng</a></li>
+    <li><a class="btn btn-bg-white rounded-pill py-2 px-6" (click)="drawer.toggle()"><mat-icon>restaurant</mat-icon>Nhà hàng</a></li>
     <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>hotel</mat-icon>Khách sạn</a></li>
     <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>photo_camera</mat-icon>Điểm tham quan</a></li>
     <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>museum</mat-icon>Bảo tàng</a></li>
@@ -75,7 +76,11 @@
 </div>
 
 <mat-drawer-container class="map-container" autosize>
-  <mat-drawer #drawer class="map-sidenav" mode="side" opened="false">
+
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <img src="/src/assets/media/pictures/2022-06-18.jpg" class="" alt="" />
+  </mat-drawer>
+  <!-- <mat-drawer #drawer class="map-sidenav" mode="side" opened="false">
     <ng-container *ngIf="viewStatus$ | async as viewStatus">
       <mat-toolbar color="primary" *ngIf="viewStatus.contentLeftPanel=='HOME'">
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" id="kt_menu_toggle">
@@ -169,10 +174,11 @@
         </div>
       </div>
     </ng-container>
-  </mat-drawer>
+  </mat-drawer> -->
 
 
   <div class="map-sidenav-content">
-    <div id="divMap" class="w-100 h-100"></div>
+    <div id="divMap" class="w-100 h-100" ></div>
   </div>
+  <pre id="coordinates" class="coordinates"></pre>
 </mat-drawer-container>

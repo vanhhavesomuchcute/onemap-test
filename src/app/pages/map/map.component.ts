@@ -163,12 +163,17 @@ export class MapComponent {
   ngAfterViewInit(): void {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZWtnaXMiLCJhIjoiY2tzaDcyd2Y0MGZxODJ2bWJtazluYzJxaSJ9.iqs6o8w7rkGNZReqPr_hRQ';
     var me = this;
+    const coordinates: any = document.getElementById('coordinates');
     me.map = new mapboxgl.Map({
       container: 'divMap',
       center: [105.84132, 21.05751],
       zoom: 13,
       hash: true
     });
+
+    // const marker1 = new mapboxgl.Marker()
+    //   .setLngLat([105.84132, 21.05751])
+    //   .addTo(me.map);
 
     me.map.addSource('citymap_dark', {
       'type': 'raster',
@@ -188,9 +193,22 @@ export class MapComponent {
     me.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
     me.map.on('click', (e: any) => {
-      console.log(Math.random());
 
     })
+
+    const marker = new mapboxgl.Marker({
+      draggable: true
+      })
+      .setLngLat([105.84132, 21.05751])
+      .addTo(me.map);
+
+      function onDragEnd() {
+      const lngLat = marker.getLngLat();
+      coordinates.style.display = 'block';
+      coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+      }
+
+      marker.on('dragend', onDragEnd);
   }
 
   onClickToggleLeft() {
