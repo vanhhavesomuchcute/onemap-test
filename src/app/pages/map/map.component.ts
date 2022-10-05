@@ -186,6 +186,11 @@ export class MapComponent {
     });
 
     me.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
+    me.map.on('click', (e: any) => {
+      console.log(Math.random());
+
+    })
   }
 
   onClickToggleLeft() {
