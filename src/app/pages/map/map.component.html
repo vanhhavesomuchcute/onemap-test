@@ -32,7 +32,7 @@
 
 <div class="button-x ">
   <ul>
-    <li><a class="btn btn-bg-white rounded-pill py-2 px-6" (click)="drawer.toggle()"><mat-icon>restaurant</mat-icon>Nhà hàng</a></li>
+    <li><a class="btn btn-bg-white rounded-pill py-2 px-6" (click)="drawer.toggle()" ><mat-icon>restaurant</mat-icon>Nhà hàng</a></li>
     <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>hotel</mat-icon>Khách sạn</a></li>
     <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>photo_camera</mat-icon>Điểm tham quan</a></li>
     <li><a href="#" class="btn btn-bg-white rounded-pill py-2 px-6"><mat-icon>museum</mat-icon>Bảo tàng</a></li>
@@ -76,8 +76,7 @@
 </div>
 
 <mat-drawer-container class="map-container" autosize>
-
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="isOpen" >
     <img src="/src/assets/media/pictures/2022-06-18.jpg" class="" alt="" />
   </mat-drawer>
   <!-- <mat-drawer #drawer class="map-sidenav" mode="side" opened="false">

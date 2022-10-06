@@ -45,6 +45,7 @@ export class MapComponent {
   viewStatus$: Observable<ViewStatus>;
   bViewStatus: BehaviorSubject<ViewStatus>;
 
+  isOpen: boolean = false;
   map: any;
   showLeftPanel: any = true;
   textSearch: any;
@@ -171,10 +172,6 @@ export class MapComponent {
       hash: true
     });
 
-    // const marker1 = new mapboxgl.Marker()
-    //   .setLngLat([105.84132, 21.05751])
-    //   .addTo(me.map);
-
     me.map.addSource('citymap_dark', {
       'type': 'raster',
       'tiles': [
@@ -193,22 +190,37 @@ export class MapComponent {
     me.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
     me.map.on('click', (e: any) => {
+      this.isOpen = !this.isOpen;
+      const marker = new mapboxgl.Marker({
+        draggable:true
+      })
+        .setLngLat([e.lngLat.lng, e.lngLat.lat])
+        .addTo(me.map);
+
+      coordinates.style.display = 'block';
+      coordinates.innerHTML = `Longitude: ${e.lngLat.lng}<br />Latitude: ${e.lngLat.lat}`;
+
+      marker.on('dragend', () => {
+        const lngLat = marker.getLngLat();
+        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+      })
+
 
     })
 
-    const marker = new mapboxgl.Marker({
-      draggable: true
-      })
-      .setLngLat([105.84132, 21.05751])
-      .addTo(me.map);
+    // const marker = new mapboxgl.Marker({
+    //   draggable: true
+    //   })
+    //   .setLngLat([105.84132, 21.05751])
+    //   .addTo(me.map);
 
-      function onDragEnd() {
-      const lngLat = marker.getLngLat();
-      coordinates.style.display = 'block';
-      coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-      }
+    //   function onDragEnd() {
+    //     const lngLat = marker.getLngLat();
+    //     coordinates.style.display = 'block';
+    //     coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+    //   }
 
-      marker.on('dragend', onDragEnd);
+    //   marker.on('dragend', onDragEnd);
   }
 
   onClickToggleLeft() {
